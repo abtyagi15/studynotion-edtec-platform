@@ -2,6 +2,7 @@ const User = require("../models/User");
 const OTP = require("../models/OTP");
 const Profile = require("../models/Profile");
 const otpGenerator = require("otp-generator");
+const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 //send otp
@@ -67,7 +68,7 @@ exports.signup = async (req, res) => {
       password,
       confirmPassword,
       accountType,
-      contanctNumber,
+      contactNumber,
       otp,
     } = req.body;
 
@@ -77,7 +78,7 @@ exports.signup = async (req, res) => {
       !email ||
       !password ||
       !confirmPassword ||
-      !contanctNumber ||
+      !contactNumber ||
       !otp
     ) {
       return res.status(400).json({
@@ -135,7 +136,7 @@ exports.signup = async (req, res) => {
       email,
       password: hashedPassword,
       accountType,
-      contanctNumber,
+      contactNumber,
       additionalDetails: profileDetails._id,
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     });

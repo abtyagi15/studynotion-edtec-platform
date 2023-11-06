@@ -2,6 +2,7 @@ const User = require("../models/User");
 const OTP = require("../models/OTP");
 const Profile = require("../models/Profile");
 const otpGenerator = require("otp-generator");
+const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 //send otp
@@ -47,6 +48,7 @@ exports.sendOTP = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "OTP sent successfully",
+      otp
     });
   } catch (error) {
     console.log("Error in sending the OTP", error);
@@ -67,7 +69,7 @@ exports.signup = async (req, res) => {
       password,
       confirmPassword,
       accountType,
-      contanctNumber,
+      contactNumber,
       otp,
     } = req.body;
 
@@ -77,7 +79,7 @@ exports.signup = async (req, res) => {
       !email ||
       !password ||
       !confirmPassword ||
-      !contanctNumber ||
+      !contactNumber ||
       !otp
     ) {
       return res.status(400).json({
@@ -135,12 +137,12 @@ exports.signup = async (req, res) => {
       email,
       password: hashedPassword,
       accountType,
-      contanctNumber,
+      contactNumber,
       additionalDetails: profileDetails._id,
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     });
 
-    return res.this.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "User successfully registered",
     });

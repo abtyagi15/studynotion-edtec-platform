@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 database.connect();
 app.use(express.json());
-app.user(cookieParser());
+app.use(cookieParser());
 app.use(
     cors({
         origin:"http://localhost:3000",

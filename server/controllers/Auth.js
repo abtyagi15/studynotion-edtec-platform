@@ -48,6 +48,7 @@ exports.sendOTP = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "OTP sent successfully",
+      otp
     });
   } catch (error) {
     console.log("Error in sending the OTP", error);
@@ -141,7 +142,7 @@ exports.signup = async (req, res) => {
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     });
 
-    return res.this.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "User successfully registered",
     });

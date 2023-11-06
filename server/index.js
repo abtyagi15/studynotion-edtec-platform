@@ -29,7 +29,8 @@ app.use(fileUpload({
     tempFileDir: "/tmp",
 }))
 
-cloudinaryConnect();
+const cloudinary = require('./config/cloudinary');
+cloudinary.cloudinaryConnect();
 
 //routes
 app.use("/api/v1/auth",userRoutes);

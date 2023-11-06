@@ -18,7 +18,7 @@ const {
 
 //importing section controllers
 const {
-  creatSection,
+  createSection,
   deleteSection,
   updateSection,
 } = require("../controllers/Section");

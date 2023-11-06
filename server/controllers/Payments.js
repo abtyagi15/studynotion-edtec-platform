@@ -1,7 +1,7 @@
 const {instance} = require("../config/Razorpay");
 const Course = require("../models/Course");
 const User = require("../models/User");
-const mailSender = require("../config/mail");
+const mailSender = require("../utils/mailSender");
 const {courseEnrollmentEmail} = require("../mail/templates/courseEnrollementEmail");
 
 //caputer the payment and initiate razorpay instance

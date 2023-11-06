@@ -101,8 +101,7 @@ exports.updateSubSection = async (req, res) => {
 };
 
 //delete subsection
-exports,
-  (deleteSubSection = async (req, res) => {
+exports.deleteSubSection = async (req, res) => {
     try {
       const { subSectionId, sectionId } = req.body;
 
@@ -136,4 +135,4 @@ exports,
         message: "Error in deleting subsection",
       });
     }
-  });
+  };

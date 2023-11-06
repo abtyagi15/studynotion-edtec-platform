@@ -42,7 +42,7 @@ exports.isStudent = async (req, res, next) => {
 }
 
 //isInstuctor 
-exports.isStudent = async (req, res, next) => {
+exports.isInstructor = async (req, res, next) => {
     try{
         if(req.user.role !== "Instructor"){
             return res.status(401).json({ message: "Access denied" });
@@ -55,7 +55,7 @@ exports.isStudent = async (req, res, next) => {
 }
 
 //isAdmin
-exports.isStudent = async (req, res, next) => {
+exports.isAdmin = async (req, res, next) => {
     try{
         if(req.user.role !== "Admin"){
             return res.status(401).json({ message: "Access denied" });

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 //importing middleware
-const { auth, isStudent, isInstructor } = require("../middlewares/auth");
+const { auth, isStudent, isInstructor, isAdmin } = require("../middlewares/auth");
 
 //importing course controllers
 const {
@@ -18,7 +18,7 @@ const {
 
 //importing section controllers
 const {
-  creatSection,
+  createSection,
   deleteSection,
   updateSection,
 } = require("../controllers/Section");
@@ -64,13 +64,13 @@ router.post("/get-course-details", getCourseDetails)
 // Category can Only be Created by Admin
 // TODO: Put IsAdmin Middleware here
 router.post("/create-category", auth, isAdmin, createCategory)
-router.get("/show-all-categories", showAllCategories)
+router.get("/show-all-categories", getAllCategories)
 router.post("/get-category-page-details", categoryPageDetails)
 
 //........................Rating and Review routes.....................................//
 
 router.post("/create-rating-and-reviews", auth, isStudent, createRating)
 router.get("/get-avg-rating-review", getAverageRating)
-router.get("/get-all-rating-and-reviews", getAllRatingReview)
+router.get("/get-all-rating-and-reviews", getAllRating)
 
 module.exports = router

@@ -7,7 +7,7 @@ const {login,signup,sendOTP,changePassword} = require("../controllers/Auth");
 const {resetPasswordToken,resetPassword} = require("../controllers/ResetPassword");
 
 //import middleware
-const {auth} = require("../middleware/auth");
+const {auth} = require("../middlewares/auth");
 
 //routes for login signup authentication    
 

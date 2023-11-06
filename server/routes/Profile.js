@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 //import controllers
-const {updatProfile,deleteProfile,getAllUserDetails,getEnrolledCourses,updateDispalyPicture} = require("../controllers/Profile");
+const {updateProfile,deleteProfile,getAllUserDetails,getEnrolledCourses,updateDispalyPicture} = require("../controllers/Profile");
 
 //import middlewares
 const {auth} = require("../middlewares/auth");
@@ -14,7 +14,7 @@ const {auth} = require("../middlewares/auth");
 //........................................................................................................//
 
 //route for updating profile
-router.put('/update-profile',auth,updatProfile);
+router.put('/update-profile',auth,updateProfile);
 //route for deleting the account
 router.delete('/delete-profile',auth,deleteProfile);
 //route for getting all the details of an user
